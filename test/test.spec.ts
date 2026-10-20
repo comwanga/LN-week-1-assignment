@@ -55,8 +55,7 @@ describe('Evaluate submission', () => {
     });
 
     it('should verify invoice details via lightning-cli', () => {
-        // decodepay was removed in CLN v26.04; decode supports BOLT11 invoices.
-        const decoded = lnCli(`decode ${bolt11}`);
+        const decoded = lnCli(`decodepay ${bolt11}`);
 
         expect(decoded).toBeDefined();
         expect(decoded.payment_hash).toBe(paymentHash);
